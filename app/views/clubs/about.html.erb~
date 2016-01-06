@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>About:</strong>
+  <%= @club.about %>
+</p>
+
+<%= link_to 'Back', show_club_path %>
+
+

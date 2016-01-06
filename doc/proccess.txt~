@@ -1,0 +1,83 @@
+This is the creation Process
+
+*****************EACH SECTION SHALL START WiTH THIS
+
+X****************EACH FAILED SECTION WILL HAVE AN X
+
+*****************START 
+gem install rails
+chruby ruby-2.2.2
+rails new project_name
+cd project_name
+CREATE .ruby-version CONTAINING ruby-2.2.2
+
+*****************END
+
+*****************START LOCAL SERVER
+ rails server -p 3001 -d # ACTIVATE SERVER -p PORT -d DAEMON/RUN IN BACKGROUND
+****************END
+
+****************RESOURCES
+  creates options to CRUD Create Read Update Destroy
+
+  HELPERS
+  photos_path returns /photos
+  new_photo_path returns /photos/new
+  edit_photo_path(:id) returns /photos/:id/edit (for instance, edit_photo_path(10) returns /photos/10/edit)
+  photo_path(:id) returns /photos/:id (for instance, photo_path(10) returns /photos/10)
+
+  *****************SINGLE ROUTE
+    member do
+      get 'preview'
+    end
+    OR
+    get 'preview', on: :member
+    CREATES HELPERS
+    preview_photo_path
+    preview_photo_url
+  *****************END
+
+  PATH VS URL
+  Path - partial
+  URL - Complete path
+****************END
+
+****************GENERATE COMMANDS
+/bin/rails generate controller contr_name action
+  makes a controller file called contr_name_controller
+  makes view for each action: action.html.erb
+  creates tests
+
+rails generate model Clubs name:string about:text -MODEL
+  creates migrate file
+  creates model club.rb
+  creates tests
+
+****************END
+
+****************MIGRATIONS
+rake db:migrate -migrates
+rake db:rollback -if you make a mistake
+****************END
+
+****************CLUBS FIRST STEP
+  /bin/rails generate controller clubs index
+  *******************CLUBS CONTROLLER METHODS
+    public
+      index
+      show
+      create
+      edit
+      update
+      destroy
+    private
+      set_club
+      club_params
+  *******************END
+  
+  *******************CLUB VIEWS
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    edit.html.erb
+    _form.html.erb  

@@ -1,0 +1,4 @@
+TERMS:
+format: :html
+handler: :erb
+
