@@ -1,5 +1,0 @@
-<h1>Allegheny Clubs</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<% @clubs.each do |club| %>
-  <%= link_to club.name, about_club_url(club) %>
-<% end %>
