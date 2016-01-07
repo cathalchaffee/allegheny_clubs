@@ -120,6 +120,7 @@ rails generate model Clubs name:string about:text -MODEL
    rails generate migration add_index_to_users_email
   VALIDATION
     email and first and last name TEST
+    email uses REGULAR EXPRESSION (REGEX) string pattern matching
   ******************PASSWORD
     uses HASH value matching so the website does not contain actual password in database.
     in user.rb has_secure_password
@@ -134,9 +135,10 @@ rails generate model Clubs name:string about:text -MODEL
     in Gemfile add: gem 'bcrypt',               '3.1.7'
     TERMINAL: bundle install
     AUTHENTICATE
-    user.authenticate("password") returns user or false
-    !!user.authenticate("correct_password")
-      => true
+      user.authenticate("password") returns user or false
+      !!user.authenticate("correct_password")
+        => true
+    END AUTH
   ******************END
 
 *****************END

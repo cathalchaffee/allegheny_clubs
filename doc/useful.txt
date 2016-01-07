@@ -1,0 +1,9 @@
+****************GET PRETTY TESTS
+  https://github.com/mig/gedit-themes
+  INSTALL gem install minitest-reporters
+  in test_helper.rb
+    require "minitest/reporters"
+    Minitest::Reporters.use!
+
+  NOW TESTS ARE COLORFUL!
+****************END

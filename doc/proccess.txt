@@ -78,7 +78,7 @@ rails generate model Clubs name:string about:text -MODEL
     @example = Example.new(this: "this", that: "that")
   end
   test "what this does" do
-    assert OR not_assert @example.valid?
+    assert OR not_assert OR assert_equal @example.valid?
   end
   TESTS
   validation testing
@@ -120,6 +120,7 @@ rails generate model Clubs name:string about:text -MODEL
    rails generate migration add_index_to_users_email
   VALIDATION
     email and first and last name TEST
+    email uses REGULAR EXPRESSION (REGEX) string pattern matching
   ******************PASSWORD
     uses HASH value matching so the website does not contain actual password in database.
     in user.rb has_secure_password
