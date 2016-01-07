@@ -36,8 +36,8 @@ class ClubTest < ActiveSupport::TestCase
   # UNIQUENESS TESTS
   ##################
   test "Club names should be unique" do
-    duplicate_club = @club.dup
-    @club.save
+    duplicate_club = @user.dup
+    @user.save
     assert_not duplicate_club.valid?
   end
 end

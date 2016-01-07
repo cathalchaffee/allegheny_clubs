@@ -134,10 +134,9 @@ rails generate model Clubs name:string about:text -MODEL
     in Gemfile add: gem 'bcrypt',               '3.1.7'
     TERMINAL: bundle install
     AUTHENTICATE
-      user.authenticate("password") returns user or false
-      !!user.authenticate("correct_password")
-        => true
-    END AUTH
+    user.authenticate("password") returns user or false
+    !!user.authenticate("correct_password")
+      => true
   ******************END
 
 *****************END
