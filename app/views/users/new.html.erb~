@@ -1,5 +1,0 @@
-<h1>Create a Profile</h1>
-
-<%= render user_form %>
-
- 
