@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
   
   # NOTE: includes presence validation, password_confirmation is required as well
   validates :password,  length: { minimum: 6 },
-                        presence: true
+                        presence: true 
 end

@@ -1,0 +1,23 @@
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <%= link_to "Allegheny Clubs", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Log in", login_path %></li>        
+        </ul>
+      </nav>
+    </div>
+    
+  </header>
+
+  <div class="col-md-2 center navbar-fixed-right navbar-fixed-top">
+    <p class="center" id="about">About Clubs</p>
+    <nav>
+      <ul class="nav navbar-middle" id="club_list">
+      <% @clubs.each do |club| %>
+        <li id="club"><%= link_to club.name, about_club_path(club), id: "the_club" %></li>
+      <% end %>
+      </ul>
+    </nav>
+  </div>

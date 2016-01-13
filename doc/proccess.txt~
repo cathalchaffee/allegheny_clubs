@@ -55,6 +55,14 @@ rails generate model Clubs name:string about:text -MODEL
 
 ****************END
 
+****************BOOTSTRAP
+gem 'bootstrap-sass',       '3.2.0.0'
+touch app/assets/stylesheets/custom.css.scss
+in custom.css.scss
+@import "bootstrap-sprockets";
+@import "bootstrap";
+****************END
+
 ****************MIGRATIONS
   rake db:migrate -migrates
   rake db:rollback -if you make a mistake
@@ -78,7 +86,7 @@ rails generate model Clubs name:string about:text -MODEL
     @example = Example.new(this: "this", that: "that")
   end
   test "what this does" do
-    assert OR not_assert @example.valid?
+    assert OR not_assert OR assert_equal @example.valid?
   end
   TESTS
   validation testing
@@ -141,4 +149,38 @@ rails generate model Clubs name:string about:text -MODEL
     END AUTH
   ******************END
 
+  ******************LOGIN SESSION
+    Session: HTTP can't remember user's identity. Thus a user must log in to a 'session' Semi-perminent connection between two computers.
+    ex: client running web browser and server running rails
+    cookies: persist from page to page and can store information
+    METHOD: session. expire on browser close.
+    COOKIES: longer session
+    RESTful `new` session: sign in form. `create` session: login. `destoy` session: logout
+    Instead of database backend, cookies
+    rails generate controller Sessions new
+    automatically generates SessionsHelper
+
+    in routes.rb (not resources :sessions)
+    get    'login'   => 'sessions#new'
+    post   'login'   => 'sessions#create'
+    delete 'logout'  => 'sessions#destroy'
+
+    new form returns params[:session] containing password and email
+
+    create and destroy functions in sessions_controller
+    include SessionsHelper in application_controller
+
+    `session` method -- *seperate from sessions controller
+    places temporary cookie on browser containing encrypt user id. retrieve id using `session[:user_id] (ends when close browser)
+
+    ADD TO HELPER:
+    # Logs in the given user.
+    def log_in(user)
+      session[:user_id] = user.id
+    end
+    Once logged in <%= current_user.name %>
+                   redirect_to current_user
+    find current user with User.find_by(id: session[:user_id]
+    current_user function defined in SessionsHelper class
+  ******************END
 *****************END
