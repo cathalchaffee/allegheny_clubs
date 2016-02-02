@@ -12,7 +12,7 @@
 
 <%= render 'topics/form' %>
 
-<% @topics.reverse.each do |topic| %>
+<% @topics.each do |topic| %>
   <%= simple_format(topic.text) %>
 <% end %>
 

@@ -201,5 +201,4 @@ in custom.css.scss:
     end
 
   @order = @customer.orders.create(order_date: Time.now)
-
 ******************END

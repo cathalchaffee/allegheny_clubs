@@ -8,7 +8,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1
   def show
-    @topic = Topic.new  
+    @topic = Topic.new(club: @club)  
     @topics = @club.topics
   end
 
