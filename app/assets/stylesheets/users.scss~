@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .sidebar{
-  background: #444;
+  background: #555;
   padding-bottom: 100px;
   max-length: 100%;
   overflow-y: hidden;

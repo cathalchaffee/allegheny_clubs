@@ -1,20 +1,33 @@
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<header class="navbar navbar-inverse" id="club-head">
+  <h4 id='club-header'>
+  <strong>Club:</strong>
   <%= @club.name %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @club.about %>
-</p>
-
-<%= render 'topics/form' %>
-
-<% @topics.reverse.each do |topic| %>
-  <%= simple_format(topic.text) %>
-<% end %>
-
+  </h4>
+</header>
+<% @users.each do |user| %>
+        <%= user.first_name + " " + user.last_name %>
+      <% end %>
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>
+  <div class="col-md-10">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 container" id="back-drop">
+
+      <div class="col-md-12" id="form-div">
+        <%= render 'topics/form' %>
+      </div>
+      
+      <div class="col-md-12 all-topics">
+        <% @topics.reverse.each do |topic| %>
+          <div class="topic-div">
+          <%= simple_format(topic.text) %>
+          <%= link_to 'Comments', topic_path(topic) %>
+          <%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>

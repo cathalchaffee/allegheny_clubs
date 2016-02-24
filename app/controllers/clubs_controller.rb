@@ -8,6 +8,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1
   def show
+    @users = @club.users
     @topic = Topic.new  
     @topics = @club.topics
   end
@@ -62,6 +63,6 @@ class ClubsController < ApplicationController
     end
 
     def topic_params
-      #params.require(:topic).permit(:text)
+      params.require(:topic).permit(:text)
     end
 end

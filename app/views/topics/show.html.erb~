@@ -5,7 +5,9 @@
   <%= @topic.text %>
 </p>
 
+<% @comments.reverse.each do |topic| %>
+  <%= simple_format(topic.text) %>
+<% end %>
 
-
-<%= link_to 'Edit', edit_club_path(@topic) %> |
-<%= link_to 'Back', clubs_path %>
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

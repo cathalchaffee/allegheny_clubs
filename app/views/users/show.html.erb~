@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <div class="col-md-2 sidebar">
+    <%= image_tag("default-user.png", :class => "prof-img") %>
+    <div class="padded">
+      <p class="white">
+        <strong class='test'>First Name: </strong>
+        <%= @user.first_name %>
+      </p>
+
+      <p class="white">
+        <strong>Last Name: </strong>
+        <%= @user.last_name %>
+      </p>
+
+      <p class="white">
+        <strong>Email: </strong>
+        <%= @user.email %>
+      </p>
+      
+      <strong class="white">CLUBS: </strong><br>
+      <% @clubs.each do |club| %>
+        <strong><%= link_to club.name, club_path(club), { :class => "profile-nav" } %></strong><br>
+      <% end %>
+
+      <%= link_to "Log out", logout_path, method: :delete %>
+    </div>
+  </div>
+</div>

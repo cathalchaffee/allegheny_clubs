@@ -1,12 +1,12 @@
   <header class="navbar navbar-fixed-top navbar-inverse" id="head">
     <div class="container-fluid">
       <%= link_to "Allegheny Clubs", root_path, id: "logo" %>
-      <nav>
+      
         <ul class="nav navbar-nav navbar-right">
           <li class="btn-link"><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Log in", login_path %></li>        
+          <li class="btn-link"><%= link_to "Log in", login_path %></li>        
         </ul>
-      </nav>
+      
     </div>
     
   </header>

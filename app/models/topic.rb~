@@ -1,3 +1,4 @@
 class Topic < ActiveRecord::Base
-  belongs_to :club, inverse_of: :customer
+  belongs_to :club
+  has_many :topics, dependent: :destroy
 end

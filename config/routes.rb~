@@ -2,12 +2,7 @@ Rails.application.routes.draw do
 
   # CREATE ROOT PATH  
   root 'welcome#index'
-  
-  # Commentable concern
-  concern :commentable do
-    resources :comments
-  end
-  
+  get 'welcome#index'
   # Club Resource
   resources :clubs do
     member do
@@ -16,8 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # topics belong to a club
   resources :topics
-  #resources :topics, :only => [:create, :show], concerns: :commentable
+  
+  # comments belong to a topic
+  resources :comments
   
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

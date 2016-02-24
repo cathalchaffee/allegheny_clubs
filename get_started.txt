@@ -1,6 +1,0 @@
-COMMAND
-chruby ruby-2.2.2
-rails new project_name
-cd project_name
-rails server -p 3001 -d # ACTIVATE SERVER -p PORT -d DAEMON/RUN IN BACKGROUND
-

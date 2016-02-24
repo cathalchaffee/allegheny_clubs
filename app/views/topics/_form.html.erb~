@@ -1,24 +1,28 @@
 <%= form_for(@topic) do |f| %>
-  <% if @topic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this club from being saved:</h2>
+  <div class="col-md-10 text-box">  
+    <% if @topic.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this club from being saved:</h2>
 
-      <ul>
-      <% @topic.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @topic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_area :text, :id => "message_area" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= hidden_field_tag :from, from_controller_action %>
+
+    <%= hidden_field_tag :club_name, "#{@club.name}" %>
   </div>
-
-  <%= hidden_field_tag :from, from_controller_action %> 
-  <%= hidden_field_tag :club_name, "#{@club.name}" %> 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-md-2">
+    <div class="actions">
+      <%= f.submit "Create", :class => 'submit-class' %>
+    </div>
   </div>
 <% end %>

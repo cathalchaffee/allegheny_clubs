@@ -5,7 +5,11 @@
   <%= @topic.text %>
 </p>
 
+<%= render 'comments/form' %>
 
+<% @comments.reverse.each do |comment| %>
+  <%= simple_format(comment.text) %>
+<% end %>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
