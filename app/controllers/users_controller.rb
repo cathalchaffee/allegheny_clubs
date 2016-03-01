@@ -38,7 +38,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user != @user
+      redirect_to root_path
+    end
     @clubs = @user.clubs
+    @current_user = current_user
   end  
 
   private

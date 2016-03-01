@@ -8,12 +8,20 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1
   def show
-    @users = @club.users
-    @topic = Topic.new  
-    @topics = @club.topics
+    if !logged_in?
+      redirect_to root_path
+    else
+      @users = @club.users
+      @topic = Topic.new  
+      @topics = @club.topics
+      @current_user = current_user
+      @clubs = @current_user.clubs
+    end
   end
 
   def about
+    @current_user = current_user
+    @clubs = @current_user.clubs
   end
 
   # GET /clubs/new

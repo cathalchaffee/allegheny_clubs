@@ -1,0 +1,3 @@
+rails g migration AddUserToTopics user:references
+rails g migration AddUserToComments user:references
+

@@ -1,16 +1,23 @@
 
 <p id="notice"><%= notice %></p>
 <header class="navbar navbar-inverse" id="club-head">
-  <h4 id='club-header'>
-  <strong>Club:</strong>
-  <%= @club.name %>
-  </h4>
+  <div class="container-fluid">
+    <h4 id='club-header'>
+    <strong>Club:</strong>
+    <%= @club.name %>
+    </h4>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="btn-link"><%= link_to 'Edit', edit_club_path(@club) %></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-<% @users.each do |user| %>
-        <%= user.first_name + " " + user.last_name %>
-      <% end %>
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+
+<% if logged_in? %>
+  <%= render 'users/profile' %>
+<% end %>
+
   <div class="col-md-10">
     <div class="col-md-2"></div>
     <div class="col-md-8 container" id="back-drop">

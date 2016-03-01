@@ -1,12 +1,19 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class='jumbotron'>  
+<% if logged_in? %>
+  <%= render 'users/profile' %>
+  <div class="col-md-10">
+<% end %>
+
+  <div>  
     <h1>About <%= @club.name %></h1>
     <p class="center">
       <%= simple_format(@club.about) %>
     </p>
-  <div>
-</div>
+  </div>
+
+<% if logged_in? %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', club_path %>
 

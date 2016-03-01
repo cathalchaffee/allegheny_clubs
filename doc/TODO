@@ -1,0 +1,3 @@
+allow topics and comments to have user_id of current_user when they are created.
+Format show topics page.
+Set up session logout.

@@ -188,6 +188,7 @@ h4#club-header{
 }
 
 #back-drop{
+  float: left;
   padding-top: 5px;
   background: #fff;
 }
@@ -202,13 +203,15 @@ h4#club-header{
   opacity: 0.8;
   background: #fff;
   border-color: #C0C0C0;
+  border-style: outset;
+  max-width:100%;
 }
 
 div#form-div{
   padding-left: 0px;
 }
 
-.topic-div{
-  border-style: outset;
-  max-width:100%;
+div#back-drop {
+  border-left-style: outset;
+  border-right-style: outset;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223003221) do
+ActiveRecord::Schema.define(version: 20160301044937) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -33,18 +33,22 @@ ActiveRecord::Schema.define(version: 20160223003221) do
     t.integer  "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["topic_id"], name: "index_comments_on_topic_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "topics", force: :cascade do |t|
     t.integer  "club_id"
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "topics", ["club_id"], name: "index_topics_on_club_id"
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
