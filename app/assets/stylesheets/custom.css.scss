@@ -6,7 +6,7 @@
 /*adds padding to the top to everything in body (unlessed fixed)*/
 body {
   margin-top: 50px;
-  background: #ccccff;
+  background: #022243;
 }
 
 .col-centered{
@@ -209,9 +209,22 @@ h4#club-header{
 
 div#form-div{
   padding-left: 0px;
+  padding-bottom: 5px;
+  border-bottom: solid;
+  border-bottom-color: #888;
+  margin-bottom: 5px;
 }
 
 div#back-drop {
   border-left-style: inset;
   border-right-style: outset;
+}
+
+.affix {
+  top: 50px;
+  width: 100%;
+}
+
+.msg-link {
+  color: #022243;
 }

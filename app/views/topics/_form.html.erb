@@ -15,7 +15,9 @@
     <div class="field">
       <%= f.text_area :text, :id => "message_area" %>
     </div>
-
+    
+    <%= hidden_field_tag :creator, "#{@current_user}"%>        
+    
     <%= hidden_field_tag :from, from_controller_action %>
 
     <%= hidden_field_tag :club_name, "#{@club.name}" %>

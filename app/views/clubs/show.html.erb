@@ -1,18 +1,6 @@
 
 <p id="notice"><%= notice %></p>
-<header class="navbar navbar-inverse" id="club-head">
-  <div class="container-fluid">
-    <h4 id='club-header'>
-    <strong>Club:</strong>
-    <%= @club.name %>
-    </h4>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="btn-link"><%= link_to 'Edit', edit_club_path(@club) %></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<%= render 'club_header' %>
 
 <% if logged_in? %>
   <%= render 'users/profile' %>
@@ -29,9 +17,11 @@
       <div class="col-md-12 all-topics">
         <% @topics.reverse.each do |topic| %>
           <div class="topic-div">
-          <%= simple_format(topic.text) %>
-          <%= link_to 'Comments', topic_path(topic) %>
-          <%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <p><b><%= "#{@users.find_by(id: topic.user_id).first_name} #{@users.find_by(id: topic.user_id).last_name}: " %></b><%= topic.text %></p>
+            <b><%= link_to 'Comments', topic_path(topic), :class => 'msg-link' %></b>
+            <% if @current_user.id == topic.user_id %>
+              <b><%= link_to 'Delete', topic, method: :delete, :class => 'msg-link', data: { confirm: 'Are you sure?' } %></b>
+            <% end %>
           </div>
         <% end %>
       </div>

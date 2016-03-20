@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .sidebar{
   background: #444;
   padding-bottom: 100px;
@@ -9,6 +11,7 @@
   overflow-y: hidden;
   padding-left: 0px;
   padding-right: 0; 
+  border-right: solid;
 }
 
 .white{
@@ -24,7 +27,14 @@
 }
 
 .profile-nav{
+  padding-left: 10px;
+  text-transform: uppercase;
   color: #bbb;
+}
+
+.profile-nav:hover {
+  color: #022243;
+  text-decoration: none;
 }
 
 .padded{

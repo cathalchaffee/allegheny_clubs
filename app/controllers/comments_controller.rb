@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @topics = Topic.all
+    @comment.user_id = current_user.id
     if !params[:topics_id].nil?
       @comment.topic_id = @topics.find_by(id: params[:topics_id]).id
     end

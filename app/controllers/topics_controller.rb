@@ -11,6 +11,10 @@ class TopicsController < ApplicationController
   def show
     @comment = Comment.new  
     @comments = @topic.comments
+    @current_user = current_user
+    @clubs = @current_user.clubs
+    @club = @clubs.find_by(id: @topic.club_id)
+    @users = @club.users
   end
 
   def new
@@ -23,6 +27,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @clubs = Club.all
+    @topic.user_id = current_user.id
     if !params[:club_name].nil?
       @topic.club_id = @clubs.find_by(name: params[:club_name]).id
     end

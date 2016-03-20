@@ -1,26 +1,28 @@
 <%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this topic from being saved:</h2>
+  <div class="col-md-10 text-box">  
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this topic from being saved:</h2>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_area :text, :id => "message_area" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= hidden_field_tag :from, from_controller_action %>
+
+    <%= hidden_field_tag :topics_id, "#{@topic.id}" %>
   </div>
-
-  <%= hidden_field_tag :from, from_controller_action %>
-
-  <%= hidden_field_tag :topic_id, "#{@topic.id}" %>
- 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-md-2 submit-div">
+    <div class="actions">
+      <%= f.submit "Comment", :class => 'submit-class' %>
+    </div>
   </div>
 <% end %>

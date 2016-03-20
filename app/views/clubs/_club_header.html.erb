@@ -1,0 +1,13 @@
+<nav class="navbar navbar-inverse navbar-fixed-top affix" id="club-head" data-spy="affix" data-offset-top="197">
+  <div class="container-fluid">
+    <h4 id='club-header'>
+    <strong>Club:</strong>
+    <%= @club.name %>
+    </h4>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="btn-link"><%= link_to 'Edit', edit_club_path(@club) %></li>
+      </ul>
+    </nav>
+  </div>
+</nav>

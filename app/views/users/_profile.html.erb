@@ -1,5 +1,5 @@
 <div>
-  <div class="col-md-2 sidebar">
+  <div class="col-md-2 sidebar" data-spy="affix" data-offset-top="205">
     <%= image_tag("default-user.png", :class => "prof-img") %>
     <div class="padded">
       <p class="white">
@@ -11,18 +11,11 @@
         <strong>Last Name: </strong>
         <%= @current_user.last_name %>
       </p>
-
-      <p class="white">
-        <strong>Email: </strong>
-        <%= @current_user.email %>
-      </p>
       
       <strong class="white">CLUBS: </strong><br>
       <% @clubs.each do |club| %>
         <strong><%= link_to club.name, club_path(club), { :class => "profile-nav" } %></strong><br>
       <% end %>
-
-      <%= link_to "Log out", logout_path, method: :delete %>
     </div>
   </div>
 </div>

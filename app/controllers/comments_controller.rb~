@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+class CommentsController < ApplicationController
   before_action :set_comments, only: [:show, :edit, :update, :destroy]
 
   def index
