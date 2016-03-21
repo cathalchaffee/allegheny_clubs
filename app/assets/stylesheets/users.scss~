@@ -2,9 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.affix {
-  top: 20px;
-}
+
 
 .sidebar{
   background: #444;
@@ -14,6 +12,7 @@
   padding-left: 0px;
   padding-right: 0; 
   border-right: solid;
+  height: 100%;
 }
 
 .white{

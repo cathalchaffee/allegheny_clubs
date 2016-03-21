@@ -5,7 +5,7 @@
 <% if logged_in? %>
   <%= render 'users/profile' %>
 <% end %>
-
+  <div class="col-md-2"></div>
   <div class="col-md-10">
     <div class="col-md-2"></div>
     <div class="col-md-8 container" id="back-drop">
@@ -16,7 +16,7 @@
       
       <div class="col-md-12 all-topics">
         <% @topics.reverse.each do |topic| %>
-          <div class="topic-div lead">
+          <div class="topic-div">
             <p><b><%= "#{@users.find_by(id: topic.user_id).first_name} #{@users.find_by(id: topic.user_id).last_name}: " %></b><%= topic.text %></p>
             <b><%= link_to 'Comments', topic_path(topic), :class => 'msg-link' %></b>
             <% if @current_user.id == topic.user_id %>

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.height{
+  height: 100%;
+}
+
 .text-box{
   padding-left:0px;
   padding-right:0px;
@@ -26,7 +30,7 @@ textarea#message_area:focus {
 .submit-div{
   padding-left:5px;
   padding-right:0px;
-  height:50px; 
+  height:50px;
 }
 
 .submit-class{

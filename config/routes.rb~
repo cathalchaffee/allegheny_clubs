@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   # CREATE ROOT PATH  
   root 'welcome#index'
-  get 'welcome#index'
   # Club Resource
   resources :clubs do
     member do

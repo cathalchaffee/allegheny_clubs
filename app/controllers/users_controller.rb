@@ -43,7 +43,8 @@ class UsersController < ApplicationController
     end
     @clubs = @user.clubs
     @current_user = current_user
-  end  
+    @all_clubs = Club.all
+  end
 
   private
     def set_user

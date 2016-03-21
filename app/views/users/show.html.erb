@@ -1,2 +1,29 @@
 <p id="notice"><%= notice %></p>
 <%= render 'profile' %>
+</br>
+</br>
+</br>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <%= form_for(@current_user) %>
+      <% if @topic.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+          <ul>
+          <% @topic.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <%= hidden_field_tag :current_id, "#{@current_user.id}"%>
+      <% @all_clubs.each do |club| %>
+        <%= club.name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

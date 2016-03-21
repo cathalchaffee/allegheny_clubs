@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @comment.topic, notice: 'Topic was successfully destroyed.'
+    redirect_to :back
   end  
 
 private
