@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
 <%= render 'profile' %>
 </br>
-</br>
-</br>
+
 <div class="row">
   <div class="col-md-2"></div>
-  <div class="col-md-10">
-    <% @all_clubs.each do |club| %>
-      <%= club.name %>
-    <% end %>
+  <div class="col-md-10 padless">
+    <%= render "clubs/club_table" %>
   </div>
 </div>
 

@@ -3,7 +3,8 @@ class ClubsController < ApplicationController
 
   # GET /clubs
   def index
-    @clubs = Club.all
+    @all_clubs = Club.all
+    @current_user = current_user
   end
 
   # GET /clubs/1
@@ -21,12 +22,14 @@ class ClubsController < ApplicationController
 
   def about
     @current_user = current_user
-    @clubs = @user.clubs
+    if !@current_user.nil?
+      @clubs = @current_user.clubs
+    end
   end
 
   # GET /clubs/new
   def new
-    @club = Club.new
+    @new_club = Club.new
   end 
 
   # GET /clubs/1/edit
@@ -35,10 +38,10 @@ class ClubsController < ApplicationController
 
   # POST /clubs
   def create
-    @club = Club.new(club_params)
+    @new_club = Club.new(club_params)
 
-    if @club.save
-      redirect_to @club, notice: 'Club was successfully created.'
+    if @new_club.save
+      redirect_to @new_club, notice: 'Club was successfully created.'
     else
       render :new
     end

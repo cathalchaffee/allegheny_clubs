@@ -1,9 +1,10 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy, :about]
+  before_action :set_club, only: [:show, :destroy, :about]
 
   # GET /clubs
   def index
-    @clubs = Club.all
+    @all_clubs = Club.all
+    @current_user = current_user
   end
 
   # GET /clubs/1
@@ -21,24 +22,27 @@ class ClubsController < ApplicationController
 
   def about
     @current_user = current_user
-    @clubs = @current_user.clubs
+    if !@current_user.nil?
+      @clubs = @current_user.clubs
+    end
   end
 
   # GET /clubs/new
   def new
-    @club = Club.new
+    @new_club = Club.new
   end 
 
   # GET /clubs/1/edit
   def edit
+    @new_club = Club.find(params[:id])
   end
 
   # POST /clubs
   def create
-    @club = Club.new(club_params)
+    @new_club = Club.new(club_params)
 
-    if @club.save
-      redirect_to @club, notice: 'Club was successfully created.'
+    if @new_club.save
+      redirect_to @new_club, notice: 'Club was successfully created.'
     else
       render :new
     end
@@ -46,8 +50,8 @@ class ClubsController < ApplicationController
 
   # PATCH/PUT /clubs/1
   def update
-    if @club.update(club_params)
-      redirect_to @club, notice: 'Club was successfully updated.'
+    if @new_club.update(club_params)
+      redirect_to @new_club, notice: 'Club was successfully updated.'
     else
       render :edit
     end

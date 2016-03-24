@@ -14,13 +14,6 @@ body {
   margin: auto;
 }
 
-.jumbotron {
-  margin: auto;
-  margin-top: 100px; 
-  padding-top: 60px;
-  margin-bottom: 80px;
-  //background: #ADD8E6;
-}
 
 .col-centered{
   float: none;
@@ -213,6 +206,7 @@ div#form-div{
 
 
 div#back-drop {
+  border-radius: 7px;
   border-left-style: inset;
   border-right-style: outset;
   top: 50px;
@@ -234,4 +228,7 @@ div#back-drop {
 
 /* Misc */
 
+.spaced {
+  
+}
 

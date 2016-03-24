@@ -1,4 +1,4 @@
-
+</br></br></br></br>
   <div class="container">
     <div class="center jumbotron col-md-10 col-centered">
       <h1>Welcome to Allegheny Clubs!</h1>
@@ -10,11 +10,12 @@
       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
     </div>
   </div>
-
-  <div class="col-md-12 center navbar-fixed-right" id="about_div">
+</br>
+  </br></br></br>
+  <div class="col-md-12 center" id="about_div">
     <p class="center" id="about">About Clubs</p>
     <nav>
-      <ul class="nav navbar-middle" id="club_list">
+      <ul class="nav" id="club_list">
         
           <% @clubs.each do |club| %>
             <li class="col-xs-2" id="club"><%= link_to club.name, about_club_path(club), id: "the_club" %></li>
@@ -23,5 +24,5 @@
       </ul>
     </nav>
   </div>
-
+</div>
 

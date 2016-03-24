@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 <% if logged_in? %>
   <%= render 'users/profile' %>
-<% end %>
+
 
   <div class="col-md-2"></div>
   <div class="col-md-10">
-      </br>
+<% end %>
+      </br></br>
       <h1 class="title">About <%= @club.name %></h1>
       <div class="col-md-1"></div>
       <div class="col-md-10 well">
         <p class="center">
           <%= simple_format(@club.about) %>
         </p>
-        <%= link_to 'Back', club_path, class: "btn"%>
       </div>
+<% if logged_in? %>
   </div>
   </div>
+<% end %>
 
 

@@ -13,6 +13,7 @@
   padding-right: 0; 
   border-right: solid;
   height: 100%;
+  top: 100px;
 }
 
 .white{
@@ -41,3 +42,7 @@
 .padded{
   padding-left: 10px;
 }
+
+.padless{
+  padding-right: 0px;
+} 

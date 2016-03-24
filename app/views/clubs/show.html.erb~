@@ -1,6 +1,6 @@
-
 <p id="notice"><%= notice %></p>
-<%= render 'club_header' %>
+
+<%= render "background_img" %>
 
 <% if logged_in? %>
   <%= render 'users/profile' %>

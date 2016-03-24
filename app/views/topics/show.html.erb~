@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'clubs/club_header' %>
+<%= render "layouts/background_img" %>
 
 <% if logged_in? %>
   <%= render 'users/profile' %>
@@ -9,7 +9,7 @@
 <div class="col-md-2"></div>
 <div class="col-md-10">
   <div class="col-md-2"></div>
-  <div class="col-md-8 affix height" data-spy="affix" id="back-drop">
+  <div class="col-md-8 height" data-spy="affix" id="back-drop">
     <div class="well lead">
       <strong><%= "#{@users.find_by(id: @topic.user_id).first_name} #{@users.find_by(id: @topic.user_id).last_name}: " %></strong>
       <%= @topic.text %>
