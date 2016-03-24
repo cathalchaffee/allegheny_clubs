@@ -1,6 +1,0 @@
-
-</br>
-</br>
-<%= link_to 'New Clubs', new_club_path %>
-<%= render "club_table" %>
-</br>
