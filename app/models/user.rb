@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   
   # CHECK VALID EMAIL FORMAT
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   # NOTE: includes presence validation, password_confirmation is required as well
   validates :password,  length: { minimum: 6 },
                         presence: true 
+
+  def is_admin?
+    email == "chaffeec@allegheny.edu" || (email == "chaffeec@example.com" && Rails.env.development?)
+  end
 end

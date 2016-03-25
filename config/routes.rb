@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get 'about'
       get 'club_topics'
+      post 'join'
     end
   end
 

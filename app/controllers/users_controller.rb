@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]  
 
   def index
-    @users = User.all
+    if current_user.nil?
+      redirect_to root_path
+    else
+      @users = User.all
+    end
   end
   
   def new
@@ -12,6 +16,9 @@ class UsersController < ApplicationController
 
   # GET /clubs/1/edit
   def edit
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 
   def create
@@ -25,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else

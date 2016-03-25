@@ -1,10 +1,14 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :destroy, :about]
+  before_action :set_club, only: [:show, :destroy, :about, :join]
 
   # GET /clubs
   def index
-    @all_clubs = Club.all
-    @current_user = current_user
+    if current_user.nil?
+      redirect_to root_path
+    else
+      @all_clubs = Club.all
+      @current_user = current_user
+    end
   end
 
   # GET /clubs/1
@@ -18,6 +22,11 @@ class ClubsController < ApplicationController
       @current_user = current_user
       @clubs = @current_user.clubs
     end
+  end
+
+  def join
+    @club.users << current_user
+    redirect_to @club
   end
 
   def about
