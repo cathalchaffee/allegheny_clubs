@@ -1,0 +1,8 @@
+nodejs needed for uglifier to compile JS
+COMMAND:
+service unicorn_allegheny_clubs start stop restart
+/etc/init.d/unicorn_allegheny_clubs
+/config/unicorn.rb
+apt-get install nginx
+/etc/nginx/sites-available/default
+/srv/allegheny_clubs
