@@ -12,7 +12,11 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    if current_user.nil? || current_user.is_admin_c?
+      redirect_to root_path
+    else
+      @comment = Comment.new
+    end
   end
 
   def edit

@@ -38,12 +38,20 @@ class ClubsController < ApplicationController
 
   # GET /clubs/new
   def new
-    @new_club = Club.new
+    if current_user.nil? || current_user.is_admin_c?
+      redirect_to root_path
+    else
+      @new_club = Club.new
+    end
   end 
 
   # GET /clubs/1/edit
   def edit
-    @new_club = Club.find(params[:id])
+    if current_user.nil? || current_user.is_admin_c?
+      redirect_to root_path
+    else
+      @new_club = Club.find(params[:id])
+    end
   end
 
   # POST /clubs

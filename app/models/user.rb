@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def is_admin?
     email == "chaffeec@allegheny.edu" || (email == "chaffeec@example.com" && Rails.env.development?)
   end
+
+  def is_admin_c?
+    :email == "chaffeec@allegheny.edu" || (:email == "chaffeec@example.com" && Rails.env.development?)
+  end
 end
