@@ -4,21 +4,21 @@
   <%= render 'users/profile' %>
 <% end %>
 
-<div class="col-md-2"></div>
-<div class="col-md-10">
-  <div class="col-md-2"></div>
-  <div class="col-md-8 height" data-spy="affix" id="back-drop">
+<div class="col-sm-2"></div>
+<div class="col-sm-10">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8 height" data-spy="affix" id="back-drop">
     <div class="well lead">
       <strong><%= "#{@users.find_by(id: @topic.user_id).first_name} #{@users.find_by(id: @topic.user_id).last_name}: " %></strong>
       <%= @topic.text %>
     </div>
     <%= link_to 'Back', club_path(@topic.club.id) %>
-    
-    <div class="col-md-12" id="form-div">
+
+    <div class="col-sm-12" id="form-div">
       <%= render 'comments/form' %>
     </div>
 
-    <div class="col-md-12 all-topics">
+    <div class="col-sm-12 all-topics">
       <% @comments.reverse.each do |comment| %>
         <div class="topic-div">
           <b><%= "#{@users.find_by(id: comment.user_id).first_name} #{@users.find_by(id: comment.user_id).last_name}: " %></b> <%= comment.text %></br></br>
@@ -32,3 +32,4 @@
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+

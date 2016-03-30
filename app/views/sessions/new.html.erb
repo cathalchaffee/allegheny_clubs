@@ -3,7 +3,7 @@
 <h1 class="title spacer">Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 well">
+  <div class="col-sm-6 col-sm-offset-3 well">
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %><br>

@@ -5,16 +5,16 @@
 <% if logged_in? %>
   <%= render 'users/profile' %>
 <% end %>
-  <div class="col-md-2"></div>
-  <div class="col-md-10">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 container" id="back-drop">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 container" id="back-drop">
 
-      <div class="col-md-12" id="form-div">
+      <div class="col-sm-12" id="form-div">
         <%= render 'topics/form' %>
       </div>
       
-      <div class="col-md-12 all-topics">
+      <div class="col-sm-12 all-topics">
         <% @topics.reverse.each do |topic| %>
           <div class="topic-div">
             <p><b><%= "#{@users.find_by(id: topic.user_id).first_name} #{@users.find_by(id: topic.user_id).last_name}: " %></b><%= topic.text %></p>
@@ -26,5 +26,5 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-sm-2"></div>
   </div>
