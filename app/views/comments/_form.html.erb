@@ -13,7 +13,7 @@
     <% end %>
 
     <div class="field">
-      <%= f.text_area :text, :id => "message_area" %>
+      <%= f.text_area :text, :id => "message_area", :placeholder => "Enter comment here" %>
     </div>
 
     <%= hidden_field_tag :from, from_controller_action %>
